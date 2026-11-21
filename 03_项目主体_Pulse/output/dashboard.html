@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulse · 脉搏仪表盘</title>
+<style>
+  :root { --bg:#f5f7fa; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb; --accent:#2563eb; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }
+  .wrap { max-width:900px; margin:0 auto; padding:32px 20px 56px; }
+  header h1 { margin:0 0 4px; font-size:26px; }
+  header p { margin:0 0 24px; color:var(--muted); font-size:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+          padding:20px 22px; margin-bottom:18px; box-shadow:0 1px 3px rgba(16,24,40,.04); }
+  .card h2 { margin:0 0 14px; font-size:16px; }
+  .risk { display:flex; gap:16px; align-items:center; }
+  .risk .num { font-size:40px; font-weight:700; color:#16a34a; line-height:1; }
+  .risk .tag { display:inline-block; padding:3px 10px; border-radius:999px; color:#fff;
+               background:#16a34a; font-size:12px; font-weight:600; }
+  .risk ul { margin:0; padding-left:18px; color:var(--muted); font-size:13px; line-height:1.7; }
+  table { width:100%%; border-collapse:collapse; font-size:13px; }
+  th,td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--muted); font-weight:600; }
+  .muted { color:var(--muted); font-size:11px; }
+  footer { color:var(--muted); font-size:12px; text-align:center; margin-top:28px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Pulse · 脉搏仪表盘</h1>
+    <p>Pulse 自驱项目 · 8周实证 · 生成于 2026-11-21 13:45</p>
+  </header>
+
+  <section class="card">
+    <h2>动力曲线（1–10）</h2>
+    <svg viewBox="0 0 720 300" width="100%" role="img" aria-label="动力曲线">
+<line x1="52" y1="248.0" x2="696" y2="248.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="44" y="252.0" font-size="11" fill="#6b7280" text-anchor="end">1</text>
+<line x1="52" y1="199.1" x2="696" y2="199.1" stroke="#e5e7eb" stroke-width="1"/>
+<text x="44" y="203.1" font-size="11" fill="#6b7280" text-anchor="end">3</text>
+<line x1="52" y1="150.2" x2="696" y2="150.2" stroke="#e5e7eb" stroke-width="1"/>
+<text x="44" y="154.2" font-size="11" fill="#6b7280" text-anchor="end">5</text>
+<line x1="52" y1="101.3" x2="696" y2="101.3" stroke="#e5e7eb" stroke-width="1"/>
+<text x="44" y="105.3" font-size="11" fill="#6b7280" text-anchor="end">7</text>
+<line x1="52" y1="28.0" x2="696" y2="28.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="44" y="32.0" font-size="11" fill="#6b7280" text-anchor="end">10</text>
+<polyline points="52.0,101.3 144.0,76.9 236.0,125.8 328.0,150.2 420.0,174.7 512.0,125.8 604.0,76.9 696.0,52.4" fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="52.0,101.3 144.0,76.9 236.0,125.8 328.0,150.2 420.0,174.7 512.0,125.8 604.0,76.9 696.0,52.4 696.0,248.0 52.0,248.0" fill="#dbeafe" opacity="0.55"/>
+<circle cx="52.0" cy="101.3" r="5" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+<text x="52.0" y="89.3" font-size="12" font-weight="600" fill="#1e3a8a" text-anchor="middle">7</text>
+<text x="52.0" y="268" font-size="11" fill="#6b7280" text-anchor="middle">W1</text>
+<circle cx="144.0" cy="76.9" r="5" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+<text x="144.0" y="64.9" font-size="12" font-weight="600" fill="#1e3a8a" text-anchor="middle">8</text>
+<text x="144.0" y="268" font-size="11" fill="#6b7280" text-anchor="middle">W2</text>
+<circle cx="236.0" cy="125.8" r="5" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+<text x="236.0" y="113.8" font-size="12" font-weight="600" fill="#1e3a8a" text-anchor="middle">6</text>
+<text x="236.0" y="268" font-size="11" fill="#6b7280" text-anchor="middle">W3</text>
+<circle cx="328.0" cy="150.2" r="5" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+<text x="328.0" y="138.2" font-size="12" font-weight="600" fill="#1e3a8a" text-anchor="middle">5</text>
+<text x="328.0" y="268" font-size="11" fill="#6b7280" text-anchor="middle">W4</text>
+<circle cx="420.0" cy="174.7" r="5" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+<text x="420.0" y="162.7" font-size="12" font-weight="600" fill="#1e3a8a" text-anchor="middle">4</text>
+<text x="420.0" y="268" font-size="11" fill="#6b7280" text-anchor="middle">W5</text>
+<circle cx="512.0" cy="125.8" r="5" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+<text x="512.0" y="113.8" font-size="12" font-weight="600" fill="#1e3a8a" text-anchor="middle">6</text>
+<text x="512.0" y="268" font-size="11" fill="#6b7280" text-anchor="middle">W6</text>
+<circle cx="604.0" cy="76.9" r="5" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+<text x="604.0" y="64.9" font-size="12" font-weight="600" fill="#1e3a8a" text-anchor="middle">8</text>
+<text x="604.0" y="268" font-size="11" fill="#6b7280" text-anchor="middle">W7</text>
+<circle cx="696.0" cy="52.4" r="5" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+<text x="696.0" y="40.4" font-size="12" font-weight="600" fill="#1e3a8a" text-anchor="middle">9</text>
+<text x="696.0" y="268" font-size="11" fill="#6b7280" text-anchor="middle">W8</text>
+</svg>
+  </section>
+
+  <section class="card">
+    <h2>缓亡预警 · Slow Death Detector</h2>
+    <div class="risk">
+      <div class="num">0</div>
+      <div>
+        <span class="tag">健康</span>
+        <ul><li>各项指标正常，保持当前节奏</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>周记录明细</h2>
+    <table>
+      <thead><tr><th>周次</th><th>本周产出</th><th>动力</th><th>产出类型</th><th>下周计划</th></tr></thead>
+      <tbody><tr><td><b>W1</b><br><span class='muted'>2026-10-01</span></td><td>完成 MVP v0.1：单周 AAR JSON→文本动力报告，命令行跑通（修复解析 bug）</td><td style='text-align:center'>7</td><td>代码</td><td>V1：支持多周数据，画第一条动力曲线</td></tr>
+<tr><td><b>W2</b><br><span class='muted'>2026-10-08</span></td><td>V1：多周数据存储 + 文本动力曲线 analyze 命令</td><td style='text-align:center'>8</td><td>代码</td><td>V2：做 HTML 仪表盘，让成果可展示</td></tr>
+<tr><td><b>W3</b><br><span class='muted'>2026-10-15</span></td><td>V2 初版：SVG 动力折线图 + HTML 仪表盘骨架</td><td style='text-align:center'>6</td><td>代码</td><td>加入缓亡预警算法；控制本周范围</td></tr>
+<tr><td><b>W4</b><br><span class='muted'>2026-10-22</span></td><td>完成缓亡预警算法设计文档与伪代码（无新增代码产出）</td><td style='text-align:center'>5</td><td>文档</td><td>强制把设计变成代码；降低范围到最小</td></tr>
+<tr><td><b>W5</b><br><span class='muted'>2026-10-29</span></td><td>无新产出（本周触发自设失败信号）</td><td style='text-align:center'>4</td><td>无</td><td>执行干预：砍掉非核心功能、公开承诺、把最低标准降到&#x27;每周1个commit&#x27;</td></tr>
+<tr><td><b>W6</b><br><span class='muted'>2026-11-05</span></td><td>干预后回升：完成预警算法落地 + 仪表盘风险卡片</td><td style='text-align:center'>6</td><td>代码</td><td>V3：用 Pulse 管理本项目的真实 AAR，形成自举闭环</td></tr>
+<tr><td><b>W7</b><br><span class='muted'>2026-11-12</span></td><td>V3：内置8周真实数据 demo、export 导出、单元测试与 README</td><td style='text-align:center'>8</td><td>代码</td><td>最终验收：全量测试 + 仪表盘 + 复盘报告</td></tr>
+<tr><td><b>W8</b><br><span class='muted'>2026-11-19</span></td><td>最终版：全量测试通过、仪表盘生成、8周复盘报告导出</td><td style='text-align:center'>9</td><td>报告</td><td>Elite20 之后继续：接入自动抓取、加趋势预测</td></tr></tbody>
+    </table>
+  </section>
+
+  <footer>由 Pulse 生成 · 把 AAR 变成可测量的生命体征</footer>
+</div>
+</body>
+</html>

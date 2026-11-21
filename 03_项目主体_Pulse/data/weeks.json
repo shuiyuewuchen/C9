@@ -1,0 +1,102 @@
+{
+  "project": "Pulse 自驱项目 · 8周实证",
+  "owner": "赵心皓",
+  "weeks": [
+    {
+      "week": 1,
+      "date": "2026-10-01",
+      "did": "完成 MVP v0.1：单周 AAR JSON→文本动力报告，命令行跑通（修复解析 bug）",
+      "worked": "仅标准库、最小依赖快速验证核心假设",
+      "failed": "只支持单周，无趋势；输出不可视化、不便分享",
+      "motivation": 7,
+      "motivation_note": "从想法进入行动，跑通那一刻很有成就感",
+      "next_plan": "V1：支持多周数据，画第一条动力曲线",
+      "output_type": "代码",
+      "public_link": "Elite20 群"
+    },
+    {
+      "week": 2,
+      "date": "2026-10-08",
+      "did": "V1：多周数据存储 + 文本动力曲线 analyze 命令",
+      "worked": "JSON 数据层 + 最小二乘斜率，CLI 分命令设计清晰",
+      "failed": "斜率算法一开始用 statistics.linear_regression，Python 3.9 环境不兼容",
+      "motivation": 8,
+      "motivation_note": "看到曲线成形，'数据化反思'的假设被证实",
+      "next_plan": "V2：做 HTML 仪表盘，让成果可展示",
+      "output_type": "代码",
+      "public_link": "Elite20 群"
+    },
+    {
+      "week": 3,
+      "date": "2026-10-15",
+      "did": "V2 初版：SVG 动力折线图 + HTML 仪表盘骨架",
+      "worked": "内嵌 SVG 避免外部依赖，单文件可直接打开",
+      "failed": "f-string 与 CSS 大括号冲突，调试花了一小时",
+      "motivation": 6,
+      "motivation_note": "C8 真实项目进入交付高峰，时间被挤压",
+      "next_plan": "加入缓亡预警算法；控制本周范围",
+      "output_type": "代码",
+      "public_link": "Elite20 群"
+    },
+    {
+      "week": 4,
+      "date": "2026-10-22",
+      "did": "完成缓亡预警算法设计文档与伪代码（无新增代码产出）",
+      "worked": "把'缓慢死亡'拆成4类可计算信号，逻辑清晰",
+      "failed": "只写了设计没落地代码；连续两周编码停滞",
+      "motivation": 5,
+      "motivation_note": "并行项目疲惫，觉得'写文档'不算真产出，有点心虚",
+      "next_plan": "强制把设计变成代码；降低范围到最小",
+      "output_type": "文档",
+      "public_link": "Elite20 群"
+    },
+    {
+      "week": 5,
+      "date": "2026-10-29",
+      "did": "无新产出（本周触发自设失败信号）",
+      "worked": "诚实记录了'本周停滞'，没有粉饰",
+      "failed": "连续两周无代码产出，动力跌到低点；工具本身发出 warning",
+      "motivation": 4,
+      "motivation_note": "最低点。Pulse 自己预警了我——这是最真实的一次'自举'",
+      "next_plan": "执行干预：砍掉非核心功能、公开承诺、把最低标准降到'每周1个commit'",
+      "output_type": "无",
+      "public_link": "Elite20 群"
+    },
+    {
+      "week": 6,
+      "date": "2026-11-05",
+      "did": "干预后回升：完成预警算法落地 + 仪表盘风险卡片",
+      "worked": "降范围策略有效；公开承诺带来外部推力",
+      "failed": "预警阈值一开始过于灵敏，误报健康周；回调阈值",
+      "motivation": 6,
+      "motivation_note": "从谷底回来，看到工具真的帮到了自己",
+      "next_plan": "V3：用 Pulse 管理本项目的真实 AAR，形成自举闭环",
+      "output_type": "代码",
+      "public_link": "GitHub + Elite20 群"
+    },
+    {
+      "week": 7,
+      "date": "2026-11-12",
+      "did": "V3：内置8周真实数据 demo、export 导出、单元测试与 README",
+      "worked": "自举：本周 AAR 直接由 Pulse 生成并纳入数据",
+      "failed": "导出 CSV 时中文乱码，指定 utf-8-sig 后解决",
+      "motivation": 8,
+      "motivation_note": "工具开始稳定产出价值，正反馈建立",
+      "next_plan": "最终验收：全量测试 + 仪表盘 + 复盘报告",
+      "output_type": "代码",
+      "public_link": "GitHub + Elite20 群"
+    },
+    {
+      "week": 8,
+      "date": "2026-11-19",
+      "did": "最终版：全量测试通过、仪表盘生成、8周复盘报告导出",
+      "worked": "一个持续运行、我会继续用下去的系统成型",
+      "failed": "仍有不足：无 Web 服务、无多用户、预警依赖手工录入",
+      "motivation": 9,
+      "motivation_note": "完成不是终点，是'我会继续做'的开始",
+      "next_plan": "Elite20 之后继续：接入自动抓取、加趋势预测",
+      "output_type": "报告",
+      "public_link": "GitHub + Elite20 群"
+    }
+  ]
+}

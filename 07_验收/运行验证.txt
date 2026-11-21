@@ -1,0 +1,108 @@
+============================================================
+Pulse 端到端验收验证 — 2026-11-21
+============================================================
+
+$ python3 --version
+Python 3.13.12
+
+[exit=0]
+
+$ python3 pulse.py demo
+已写入示例数据：/Users/a0532/Desktop/C9 Self-Initiated Project（自驱项目）/03_项目主体_Pulse/data/weeks.json（8 周）
+
+[exit=0]
+
+$ python3 -m unittest discover -s tests -v
+
+[stderr] test_consecutive_declines (test_pulse.TestAnalysis.test_consecutive_declines) ... ok
+test_has_output (test_pulse.TestAnalysis.test_has_output) ... ok
+test_slope_decreasing (test_pulse.TestAnalysis.test_slope_decreasing) ... ok
+test_slope_flat (test_pulse.TestAnalysis.test_slope_flat) ... ok
+test_slope_increasing (test_pulse.TestAnalysis.test_slope_increasing) ... ok
+test_slope_single (test_pulse.TestAnalysis.test_slope_single) ... ok
+test_dashboard_contains_sections (test_pulse.TestRendering.test_dashboard_contains_sections) ... ok
+test_demo_data_complete (test_pulse.TestRendering.test_demo_data_complete) ... ok
+test_text_report (test_pulse.TestRendering.test_text_report) ... ok
+test_critical_low_and_no_output (test_pulse.TestRisk.test_critical_low_and_no_output) ... ok
+test_empty (test_pulse.TestRisk.test_empty) ... ok
+test_healthy (test_pulse.TestRisk.test_healthy) ... ok
+test_warning_decline (test_pulse.TestRisk.test_warning_decline) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.000s
+
+OK
+
+[exit=0]
+
+$ python3 pulse.py list
+W1  2026-10-01  动力 7/10  [代码]  完成 MVP v0.1：单周 AAR JSON→文本动力报告，命令行跑通（修
+W2  2026-10-08  动力 8/10  [代码]  V1：多周数据存储 + 文本动力曲线 analyze 命令
+W3  2026-10-15  动力 6/10  [代码]  V2 初版：SVG 动力折线图 + HTML 仪表盘骨架
+W4  2026-10-22  动力 5/10  [文档]  完成缓亡预警算法设计文档与伪代码（无新增代码产出）
+W5  2026-10-29  动力 4/10  [无]  无新产出（本周触发自设失败信号）
+W6  2026-11-05  动力 6/10  [代码]  干预后回升：完成预警算法落地 + 仪表盘风险卡片
+W7  2026-11-12  动力 8/10  [代码]  V3：内置8周真实数据 demo、export 导出、单元测试与 READM
+W8  2026-11-19  动力 9/10  [报告]  最终版：全量测试通过、仪表盘生成、8周复盘报告导出
+
+[exit=0]
+
+$ python3 pulse.py analyze
+==========================================================
+  PULSE 脉搏分析  |  Pulse 自驱项目 · 8周实证
+==========================================================
+记录周数：8    动力序列：[7, 8, 6, 5, 4, 6, 8, 9]
+
+10 |  .    .    .    .    .    .    .    .  
+ 8 |  .    #    .    .    .    .    #    #  
+ 6 |  #    #    #    .    .    #    #    #  
+ 4 |  #    #    #    #    #    #    #    #  
+ 2 |  #    #    #    #    #    #    #    #  
+   +----------------------------------------
+    W1 W2 W3 W4 W5 W6 W7 W8
+
+最近4周斜率：1.70 / 周    连续下降：0 周
+缓亡风险：0/100  [healthy]  健康
+预警依据：
+  - 各项指标正常，保持当前节奏
+==========================================================
+
+[exit=0]
+
+$ python3 pulse.py dashboard
+仪表盘已生成：/Users/a0532/Desktop/C9 Self-Initiated Project（自驱项目）/03_项目主体_Pulse/output/dashboard.html
+
+[exit=0]
+
+$ python3 pulse.py analyze --data ../07_验收/W5时刻数据快照.json
+==========================================================
+  PULSE 脉搏分析  |  Pulse 自驱项目 · 8周实证
+==========================================================
+记录周数：5    动力序列：[7, 8, 6, 5, 4]
+
+10 |  .    .    .    .    .  
+ 8 |  .    #    .    .    .  
+ 6 |  #    #    #    .    .  
+ 4 |  #    #    #    #    #  
+ 2 |  #    #    #    #    #  
+   +-------------------------
+    W1 W2 W3 W4 W5
+
+最近4周斜率：-1.30 / 周    连续下降：3 周
+缓亡风险：85/100  [critical]  危险
+预警依据：
+  - 动力偏低（4/10），需要主动干预
+  - 最近4周动力快速下滑（斜率 -1.30/周）
+  - 本周无可见产出，需尽快补上
+  - 连续 3 周动力下降
+==========================================================
+
+[exit=0]
+
+$ python3 pulse.py export --format csv | head -3
+﻿week,date,did,motivation,output_type,next_plan,public_link
+1,2026-10-01,完成 MVP v0.1：单周 AAR JSON→文本动力报告，命令行跑通（修复解析 bug）,7,代码,V1：支持多周数据，画第一条动力曲线,Elite20 群
+2,2026-10-08,V1：多周数据存储 + 文本动力曲线 analyze 命令,8,代码,V2：做 HTML 仪表盘，让成果可展示,Elite20 群
+
+[exit=0]
+
